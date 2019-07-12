@@ -49,12 +49,12 @@ node {
 	
 	stage('SonarQube Analysis'){
 		def mvnHome = tool name : 'Maven3.6.0', type:'maven'
-		def path = tool name: 'gradle-4.7', type: 'gradle'
+		//def path = tool name: 'gradle-4.7', type: 'gradle'
 		
 		withSonarQubeEnv('sonar-server'){
 			 //"SONAR_USER_HOME=/opt/bitnami/jenkins/.sonar ${mvnHome}/bin/mvn sonar:sonar"
-			//sh  "${mvnHome}/bin/mvn sonar:sonar"
-			sh "${path}/bin/gradle --info -Dsonar.host.url=http://localhost:9000 sonarqube"
+			sh  "${mvnHome}/bin/mvn sonar:sonar"
+			//sh "${path}/bin/gradle --info -Dsonar.host.url=http://localhost:9000 sonarqube"
 		}
 	}
 	
