@@ -78,7 +78,7 @@ echo "(*******)"
 	        siteName: 'UCD_Local',
 	        component: [
 	            $class: 'com.urbancode.jenkins.plugins.ucdeploy.VersionHelper$VersionBlock',
-	            componentName: 'JPetStore-velocityComponent',
+	            componentName: 'JPetStorevelocityComponent',
 	            createComponent: [
 	                $class: 'com.urbancode.jenkins.plugins.ucdeploy.ComponentHelper$CreateComponentBlock',
 	                componentTemplate: '',
@@ -102,8 +102,8 @@ echo "(*******)"
 	//	println it
 	//	}
 	echo "(*******)"
-	  echo "Demo1234 ${JPetStore-velocityComponent_VersionId}"
-	  def newComponentVersionId = "${JPetStore-velocityComponent_VersionId}"
+	  echo "Demo1234 ${JPetStorevelocityComponent_VersionId}"
+	  def newComponentVersionId = "${JPetStorevelocityComponent_VersionId}"
 	  echo "git commit ${GIT_COMMIT}"
 	  //step($class: 'UploadBuild', tenantId: "5ade13625558f2c6688d15ce", revision: "${GIT_COMMIT}", appName: "Altoro", requestor: "admin", id: "${newComponentVersionId}" )
  step($class: 'UploadBuild', 
@@ -126,7 +126,7 @@ echo "(*******)"
 			 deployOnlyChanged: false, 
 			 deployProc: 'Deploy-JPetStore-velocity', 
 			 deployReqProps: '', 
-			 deployVersions: "JPetStore-velocityComponent:1.0.${BUILD_NUMBER}"], 
+			 deployVersions: "JPetStorevelocityComponent:1.0.${BUILD_NUMBER}"], 
 		siteName: 'UCD_Local'])
 
  }
