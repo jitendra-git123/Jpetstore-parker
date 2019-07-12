@@ -23,7 +23,7 @@ node {
     }
   }
   
-  stage ('Cucmber'){
+  stage ('Cucumber'){
   withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
       sh 'mvn test -Dtest=Runner'	     
     }
@@ -70,6 +70,8 @@ stage ("Appscan"){
 
 	//appscan application: '17969f05-19dd-4143-b7e2-c52a3336db18', credentials: 'Credential for ASOC', failBuild: true, failureConditions: [failure_condition(failureType: 'high', threshold: 20)], name: 'test_07012019', scanner: static_analyzer(hasOptions: false, target: '/var/jenkins_home/jobs/jpetstore'), type: 'Static Analyzer', wait: true
  }
+	
+echo "(*******)"	
   stage('Publish Artificats to UCD'){
 	  
    step([$class: 'UCDeployPublisher',
@@ -93,7 +95,7 @@ stage ("Appscan"){
 	                pushDescription: 'Pushed from Jenkins'
 	            ]
 	        ]
-])
+     ])
 	  
 		//sh 'env > env.txt'
 	//	readFile('env.txt').split("\r?\n").each {
