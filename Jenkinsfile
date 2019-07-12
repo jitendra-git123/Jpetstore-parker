@@ -23,7 +23,7 @@ node {
     }
   }
   
-  stage ('Cucumber'){
+  stage ('Junit Testcase'){
   withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
       sh 'mvn test -Dtest=Runner'	     
     }
@@ -126,12 +126,6 @@ echo "(*******)"
 			 deployVersions: "JPetStorevelocityComponent:2.0.${BUILD_NUMBER}"], 
 		siteName: 'UCD_Local'])
 
- }
- 
-stage ('HCL One Test') {
-	sleep 25
-	// echo 'Executing HCL One test ... '
-	//sh '/var/jenkins_home/onetest/hcl-onetest-command.sh'
  }
 
 }
