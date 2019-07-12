@@ -3,7 +3,7 @@ node {
 	def GIT_COMMIT
   stage ('cloning the repository'){
 	  
-      def scm = git 'https://github.com/tapansirol/jpetstore-demo01'
+      def scm = git 'https://github.com/jitendra-git123/Jpetstore-parker'
 	  GIT_COMMIT = sh(returnStdout: true, script: "git rev-parse HEAD").trim()
 	  echo "AAAA ${GIT_COMMIT}"
 	  //echo "BBBB ${scm}"
@@ -14,7 +14,7 @@ node {
 	
  
   stage ('Build') {
-      withMaven(jdk: 'JDK_local', maven: 'MVN_Local') {
+      withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
       sh 'mvn clean package'
 	      echo "**** ${GIT_COMMIT}"
 	//step($class: 'UploadBuild', tenantId: "5ade13625558f2c6688d15ce", revision: "${GIT_COMMIT}", appName: "JPetStore", requestor: "admin", id: "${newComponentVersionId}" )
@@ -24,12 +24,12 @@ node {
   }
   
   stage ('Cucmber'){
-  withMaven(jdk: 'JDK_local', maven: 'MVN_Local') {
+  withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
       sh 'mvn test -Dtest=Runner'	     
     }
   }
 	stage('SonarQube Analysis'){
-		def mvnHome = tool name : 'MVN_Local', type:'maven'
+		def mvnHome = tool name : 'Maven3.6.0', type:'maven'
 		withSonarQubeEnv('sonar-server'){
 			 "SONAR_USER_HOME=/opt/bitnami/jenkins/.sonar ${mvnHome}/bin/mvn sonar:sonar"
 			sh  "${mvnHome}/bin/mvn sonar:sonar"
