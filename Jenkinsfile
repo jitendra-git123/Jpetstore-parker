@@ -1,5 +1,5 @@
 node {
-	currentBuild.displayName = "1.${BUILD_NUMBER}"
+	currentBuild.displayName = "2.${BUILD_NUMBER}"
 	def GIT_COMMIT
   stage ('cloning the repository'){
 	  
@@ -38,7 +38,7 @@ node {
                                 tenant_id: "5ade13625558f2c6688d15ce",
                                 appName: "JPetStore-velocity",
                                 appExtId: "4b006cdb-0e50-43f2-ac87-a7586a65389e",
-                                name: "Executed in JUnit - 1.0.${BUILD_NUMBER}",
+                                name: "Executed in JUnit - 2.0.${BUILD_NUMBER}",
                                 testSetName: "Junit Test Run from Jenkins"]
                            
                         ])}catch(e){
@@ -83,7 +83,7 @@ echo "(*******)"
 	            ],
 	            delivery: [
 	                $class: 'com.urbancode.jenkins.plugins.ucdeploy.DeliveryHelper$Push',
-	                pushVersion: '1.0.${BUILD_NUMBER}',
+	                pushVersion: '2.0.${BUILD_NUMBER}',
 	                //baseDir: '/var/jenkins_home/workspace/JPetStore/target',
 			 baseDir: 'D:/Installables/Jenkins/workspace/Velocity/Jpetstore-parker/target/',
 	                fileIncludePatterns: '*.war',
@@ -109,21 +109,21 @@ echo "(*******)"
        appName: "JPetStore-velocity", 
        requestor: "admin", 
        id: "${newComponentVersionId}", 
-       versionName: "1.0.${BUILD_NUMBER}"
+       versionName: "2.0.${BUILD_NUMBER}"
       )
      
 	//echo "Demo123 ${newComponentVersionId}"
 	//sleep 25
 	  step([$class: 'UCDeployPublisher',
 		deploy: [ createSnapshot: [deployWithSnapshot: true, 
-			 snapshotName: "1.0.${BUILD_NUMBER}"],
+			 snapshotName: "2.0.${BUILD_NUMBER}"],
 			 deployApp: 'JPetStore-velocity', 
 			 deployDesc: 'Requested from Jenkins', 
 			 deployEnv: 'JPetStore-velocity_Dev', 
 			 deployOnlyChanged: false, 
 			 deployProc: 'Deploy-JPetStore-velocity', 
 			 deployReqProps: '', 
-			 deployVersions: "JPetStorevelocityComponent:1.0.${BUILD_NUMBER}"], 
+			 deployVersions: "JPetStorevelocityComponent:2.0.${BUILD_NUMBER}"], 
 		siteName: 'UCD_Local'])
 
  }
