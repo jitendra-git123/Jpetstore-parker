@@ -38,7 +38,7 @@ node {
                                 tenant_id: "5ade13625558f2c6688d15ce",
                                 appName: "JPetStore-velocity",
                                 appExtId: "4b006cdb-0e50-43f2-ac87-a7586a65389e",
-                                name: "Executed in JUnit - ${currentBuild.displayName}",
+                                name: "Executed in JUnit - 1.0.${BUILD_NUMBER}",
                                 testSetName: "Junit Test Run from Jenkins"]
                            
                         ])}catch(e){
