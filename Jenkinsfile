@@ -53,7 +53,7 @@ node {
 		
 		withSonarQubeEnv('sonar-server'){
 			 //"SONAR_USER_HOME=/opt/bitnami/jenkins/.sonar ${mvnHome}/bin/mvn sonar:sonar"
-			sh  "${mvnHome}/bin/mvn sonar:sonar"
+			sh  "mvn sonar:sonar"
 			//sh "${path}/bin/gradle --info -Dsonar.host.url=http://localhost:9000 sonarqube"
 		}
 	}
