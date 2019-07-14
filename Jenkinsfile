@@ -65,7 +65,7 @@ stage ("Appscan"){
 	//build job: '/asoc', wait: false, parameters: [
 	//string(name: 'COMMITID', value: GIT_COMMIT),
 	string(name: 'COMMITID', value: GIT_COMMIT),
-	string(name: 'parentBuildNumber', value: currentBuild)
+	string(name: 'parentBuildNumber', value: BUILD_NUMBER)
 	//string(name: 'parentBuildNumber', value: 2.0.${BUILD_NUMBER})
 		
 	]
