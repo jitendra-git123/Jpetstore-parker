@@ -1,5 +1,5 @@
 node {
-	def currentBuild = "2.0.${BUILD_NUMBER}"
+	currentBuild.displayName = "2.0.${BUILD_NUMBER}"
 	def GIT_COMMIT
   stage ('cloning the repository'){
 	  
