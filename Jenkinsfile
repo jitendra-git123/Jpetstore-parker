@@ -1,5 +1,5 @@
 node {
-	def currentBuild.displayName = "2.0.${BUILD_NUMBER}"
+	def currentBuild = "2.0.${BUILD_NUMBER}"
 	def GIT_COMMIT
   stage ('cloning the repository'){
 	  
@@ -65,7 +65,7 @@ stage ("Appscan"){
 	//build job: '/asoc', wait: false, parameters: [
 	//string(name: 'COMMITID', value: GIT_COMMIT),
 	string(name: 'COMMITID', value: GIT_COMMIT),
-	string(name: 'parentBuildNumber', value: currentBuild.displayName)
+	string(name: 'parentBuildNumber', value: currentBuild)
 	//string(name: 'parentBuildNumber', value: 2.0.${BUILD_NUMBER})
 		
 	]
