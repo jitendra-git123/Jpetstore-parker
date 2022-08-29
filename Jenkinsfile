@@ -62,11 +62,11 @@ node {
 			//sh "${path}/bin/gradle --info -Dsonar.host.url=http://localhost:9000 sonarqube"
 		}
 		
-		    def mvn = tool 'Maven3.6.0';
-    withSonarQubeEnv(jdk: 'java1.8', maven: 'Maven3.6.0') {
+		//    def mvn = tool 'Maven3.6.0';
+    // withSonarQubeEnv(jdk: 'java1.8', maven: 'Maven3.6.0') {
        sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=JPetstore"
     //  sh "mvn clean verify sonar:sonar -Dsonar.projectKey=JPetstore"
-     }
+     // }
 	}
 	
 	
